@@ -1,0 +1,50 @@
+.game-header {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.game_titles {
+  color: #4b4b4b;
+  font-size: clamp(24px, 5vw, 40px);
+  margin: 10px;
+  padding: 10px 25px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.game_round {
+  color: #e67e22;
+}
+
+.game_time {
+  color: #e67e22;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+  justify-items: center;
+  align-items: center;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .game_titles {
+    font-size: clamp(20px, 5vw, 36px);
+  }
+}
+
+@media (max-width: 480px) {
+  .game_titles {
+    font-size: clamp(16px, 5vw, 30px);
+  }
+}
