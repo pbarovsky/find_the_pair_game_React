@@ -11,7 +11,9 @@
 @tailwind utilities;
 
 body { 
-  @apply m-0 box-border font-sans text-gray-800 select-none;
+  @apply m-0 p-0 box-border font-sans text-gray-800 select-none;
   font-family: "JetBrains Mono", serif;
   font-style: normal;
+  margin: 0;
+  padding: 0;
 }

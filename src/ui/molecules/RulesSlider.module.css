@@ -4,8 +4,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 50px;
-  max-width: 800px;
-  width: 100%;
+  max-width: 600px;
+  width: 90%;
 }
 
 .slider__title {
@@ -19,7 +19,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  padding: 20px;
   border-radius: 8px;
   max-width: 600px;
   width: 100%;
