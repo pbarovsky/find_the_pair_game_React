@@ -1,9 +1,0 @@
-.modal {
-  margin: 0 auto;  
-  text-align: center;
-}
-
-.modal h2 {
-  font-size: clamp(10px, 10vw, 100px);
-  color: #444;
-}

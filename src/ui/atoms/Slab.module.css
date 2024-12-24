@@ -1,0 +1,71 @@
+.slab {
+  max-width: 200px;
+  max-height: 200px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  margin: 0;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s, background-color 0.5s ease;
+  transform: rotateY(0);
+}
+
+.slab::before,
+.slab::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  backface-visibility: hidden;
+  transition: background-image 0.5s ease;
+}
+
+/* Передняя сторона плитки (символ ?) */
+.slab::before {
+  content: "?";
+  background-color: white;
+  border: 1px solid #ccc;
+  transform: rotateY(0deg);
+  font-size: clamp(10px, 10vw, 50px);
+  color: #ccc;
+}
+
+/* Задняя сторона плитки */
+.slab::after {
+  content: "";
+  background-image: var(--slab-image); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  transform: rotateY(180deg);
+}
+
+/* Перевернутая плитка */
+.slab.flipped {
+  transform: rotateY(180deg); 
+}
+
+/* Угаданная плитка */
+.slab.matched {
+  pointer-events: none; 
+}
+
+/* Угаданная плитка - убираем символ ? */
+.slab.matched::before {
+  content: "";
+  background-color: transparent; 
+  border: none;
+}
+
+/* Угаданная плитка - задняя сторона становится белой */
+.slab.matched::after {
+  background-color: #fff !important;
+  border: 1px solid transparent; 
+}
+

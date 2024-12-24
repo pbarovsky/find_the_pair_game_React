@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import GamePage from "./components/GamePage";
-import GameOverPage from "./components/GameOverPage";
-import StartPage from "./components/StartPage";
+import { useState } from "react";
+import GamePage from "./ui/organisms/GamePage";
+import GameOverModal from "./ui/organisms/GameOverModal";
+import StartPage from "./ui/organisms/StartPage";
 
 const App = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
@@ -19,9 +19,17 @@ const App = () => {
     setIsGameOver(false);
   };
 
-  if (!isGameStarted) return <StartPage onStartGame={startGame} />;
-  if (isGameOver) return <GameOverPage onRestart={restartGame} />;
-  return <GamePage onGameOver={endGame} />;
+  return (
+    <>
+      {!isGameStarted && <StartPage onStartGame={startGame} />}
+      {isGameStarted && <GamePage onGameOver={endGame} exit={restartGame}/>}
+      {isGameOver && (
+        <GameOverModal
+          onRestart={restartGame}
+        />
+      )}
+    </>
+  );
 };
 
 export default App;

@@ -1,13 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@font-face {
+  font-family: 'Megatech';
+  src: url('./assets/fonts/Megatech.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
 
 
-body {
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-  color: #202124;
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  -moz-user-select: none; /* Firefox */
-  -webkit-user-select: none; /* Safari */
-  user-select: none; /* Standard syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body { 
+  @apply m-0 box-border font-sans text-gray-800 select-none;
+  font-family: "JetBrains Mono", serif;
+  font-style: normal;
 }
