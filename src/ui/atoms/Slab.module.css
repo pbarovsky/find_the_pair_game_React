@@ -29,7 +29,8 @@
 .slab::before {
   content: "?";
   background-color: white;
-  border: 1px solid #ccc;
+  border: 3px solid black;
+  box-shadow: 1px 1px 0px 0px black, 2px 2px 0px 0px black, 3px 3px 0px 0px black, 4px 4px 0px 0px black, 5px 5px 0px 0px;
   transform: rotateY(0deg);
   font-size: clamp(10px, 10vw, 50px);
   color: #ccc;
@@ -43,6 +44,8 @@
   background-position: center; 
   background-repeat: no-repeat;
   transform: rotateY(180deg);
+  border: 3px solid black;
+  box-shadow: 1px 1px 0px 0px black, 2px 2px 0px 0px black, 3px 3px 0px 0px black, 4px 4px 0px 0px black, 5px 5px 0px 0px;
 }
 
 /* Перевернутая плитка */
@@ -60,6 +63,7 @@
   content: "";
   background-color: transparent; 
   border: none;
+  box-shadow: none;
 }
 
 /* Угаданная плитка - задняя сторона становится белой */
