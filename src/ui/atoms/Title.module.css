@@ -5,10 +5,10 @@
   max-height: 200px;
   height: 100%;
   max-width: 1000px;
-  background-color: #ffffff;
+  background-color: var(--main-color);
   font-size: 70px;
   font-family: "Megatech", sans-serif;
-  color: black;
+  color: var(--accent-color);
 }
 
 .letter {

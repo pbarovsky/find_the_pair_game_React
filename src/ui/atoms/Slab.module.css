@@ -23,17 +23,22 @@
   align-items: center;
   backface-visibility: hidden;
   transition: background-image 0.5s ease;
+  
 }
 
 /* Передняя сторона плитки (символ ?) */
 .slab::before {
   content: "?";
-  background-color: white;
-  border: 3px solid black;
-  box-shadow: 1px 1px 0px 0px black, 2px 2px 0px 0px black, 3px 3px 0px 0px black, 4px 4px 0px 0px black, 5px 5px 0px 0px;
+  background-color: var(--main-color);
+  border: 3px solid var(--accent-color);
+  box-shadow: 1px 1px 0px 0px var(--accent-color), 
+  2px 2px 0px 0px var(--accent-color), 
+  3px 3px 0px 0px var(--accent-color), 
+  4px 4px 0px 0px var(--accent-color), 
+  5px 5px 0px 0px var(--accent-color);
   transform: rotateY(0deg);
   font-size: clamp(10px, 10vw, 50px);
-  color: #ccc;
+  color: var(--accent-color);
 }
 
 /* Задняя сторона плитки */
@@ -44,8 +49,13 @@
   background-position: center; 
   background-repeat: no-repeat;
   transform: rotateY(180deg);
-  border: 3px solid black;
-  box-shadow: 1px 1px 0px 0px black, 2px 2px 0px 0px black, 3px 3px 0px 0px black, 4px 4px 0px 0px black, 5px 5px 0px 0px;
+  border: 3px solid var(--accent-color);
+  box-shadow: 1px 1px 0px 0px var(--accent-color), 
+  2px 2px 0px 0px var(--accent-color), 
+  3px 3px 0px 0px var(--accent-color), 
+  4px 4px 0px 0px var(--accent-color), 
+  5px 5px 0px 0px;
+  filter: var(--image);
 }
 
 /* Перевернутая плитка */
@@ -68,7 +78,6 @@
 
 /* Угаданная плитка - задняя сторона становится белой */
 .slab.matched::after {
-  background-color: #fff !important;
+  background-color: var(--main-color) !important;
   border: 1px solid transparent; 
 }
-
