@@ -21,7 +21,6 @@ html[data-theme='light'] {
   font-style: normal;
 }
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

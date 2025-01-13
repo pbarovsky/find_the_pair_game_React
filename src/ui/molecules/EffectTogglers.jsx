@@ -38,7 +38,7 @@ const EffectTogglers = () => {
       <img
         src={isPlaying ? SOUND_ON : SOUND_OFF}
         alt="Sound toggle"
-        onClick={() => toggleSound()}
+        onClick={toggleSound}
         className={sc.sound_switcher}
       />
     </div>
