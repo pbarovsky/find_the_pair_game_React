@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import sc from "./Title.module.css";
 
-const Title = () => {
+export const Title = () => {
   const text = "FIND A PAIR";
-  const letters = text.split("").map(letter => ({ letter, isAnimated: true }));
+  const letters = text
+    .split("")
+    .map((letter) => ({ letter, isAnimated: true }));
 
   const [animatedIndexes, setAnimatedIndexes] = useState([]);
 
@@ -32,7 +34,9 @@ const Title = () => {
         <div
           key={index}
           className={`${sc.letter} ${
-            animatedIndexes.includes(index) && item.isAnimated ? sc["animated-letter"] : ""
+            animatedIndexes.includes(index) && item.isAnimated
+              ? sc["animated-letter"]
+              : ""
           }`}
         >
           {item.letter === " " ? "\u00A0" : item.letter}
@@ -41,5 +45,3 @@ const Title = () => {
     </div>
   );
 };
-
-export default Title;

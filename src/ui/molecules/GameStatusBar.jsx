@@ -1,15 +1,14 @@
-import Button from "../atoms/Button";
+import { Button } from "../atoms/Button";
 import sc from "./GameStatusBar.module.css";
-
 import CLOCK from "../../assets/icons/clock.svg";
 
-const GameStatusBar = ({ round, timeLeft, exit }) => {
+export const GameStatusBar = ({ round, timeLeft, exit }) => {
   return (
-    <header className={sc["game-header"]}>
+    <header className={sc.game_header}>
       <div className={sc.game_status}>
         <div className={sc.title_round}>{round}</div>
         <div className={sc.title_time}>
-          <img src={CLOCK} alt="clock" className={sc.clock_icon}/>
+          <img src={CLOCK} alt="clock" className={sc.clock_icon} />
           <p className={sc.time}>{timeLeft}</p>
         </div>
       </div>
@@ -17,5 +16,3 @@ const GameStatusBar = ({ round, timeLeft, exit }) => {
     </header>
   );
 };
-
-export default GameStatusBar;

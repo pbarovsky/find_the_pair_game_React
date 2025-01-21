@@ -7,6 +7,4 @@ import img6 from "../assets/images/6.png";
 import img7 from "../assets/images/7.png";
 import img8 from "../assets/images/8.png";
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8];
-
-export default images;
+export const images = [img1, img2, img3, img4, img5, img6, img7, img8];

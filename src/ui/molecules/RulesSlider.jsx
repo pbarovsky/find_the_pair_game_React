@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../atoms/Button";
+import { Button } from "../atoms/Button";
 import sc from "./RulesSlider.module.css";
 
 const rules = [
@@ -13,7 +13,7 @@ const rules = [
   "Будьте внимательны и запоминайте позиции плиток!",
 ];
 
-const RulesSlider = () => {
+export const RulesSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleNext = () => {
@@ -49,5 +49,3 @@ const RulesSlider = () => {
     </div>
   );
 };
-
-export default RulesSlider;

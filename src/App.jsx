@@ -1,8 +1,8 @@
 import { useState } from "react";
-import GamePage from "./ui/organisms/GamePage";
-import GameOverModal from "./ui/organisms/GameOverModal";
-import StartPage from "./ui/organisms/StartPage";
-import EffectTogglers from "./ui/molecules/EffectTogglers";
+import { GamePage } from "./ui/organisms/GamePage";
+import { GameOverModal } from "./ui/organisms/GameOverModal";
+import { StartPage } from "./ui/organisms/StartPage";
+import { EffectTogglers } from "./ui/molecules/EffectTogglers";
 
 const App = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);

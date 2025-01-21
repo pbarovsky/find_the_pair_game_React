@@ -1,15 +1,15 @@
 import React, { useReducer, useEffect } from "react";
-import Slab from "../atoms/Slab";
+import { Slab } from "../atoms/Slab";
 import { gameReducer } from "../../reducers/GameReducer";
 import { GameActions } from "../../reducers/GameActions";
 import { INITIAL_STATE } from "../../reducers/InitialState";
 import { shuffleImages } from "../../utils/shuffleImages";
 import { formatTime } from "../../utils/formatTime";
-import GameStatusBar from "../molecules/GameStatusBar";
-import images from "../../utils/images";
+import { GameStatusBar } from "../molecules/GameStatusBar";
+import { images } from "../../utils/images";
 import sc from "./GamePage.module.css";
 
-const GamePage = ({ onGameOver, exit }) => {
+export const GamePage = ({ onGameOver, exit }) => {
   const [state, dispatch] = useReducer(gameReducer, {
     ...INITIAL_STATE,
     slabs: shuffleImages(images),
@@ -92,6 +92,3 @@ const GamePage = ({ onGameOver, exit }) => {
     </div>
   );
 };
-
-export default GamePage;
-

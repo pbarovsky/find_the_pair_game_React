@@ -8,7 +8,7 @@ import MODE from "../../assets/icons/MODE.svg";
 import SOUND_ON from "../../assets/icons/sound_on.svg";
 import SOUND_OFF from "../../assets/icons/sound_off.svg";
 
-const EffectTogglers = () => {
+export const EffectTogglers = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [play, { stop }] = useSound(MUSIC, { loop: true });
   const { theme, setTheme } = useTheme();
@@ -44,5 +44,3 @@ const EffectTogglers = () => {
     </div>
   );
 };
-
-export default EffectTogglers;

@@ -1,9 +1,8 @@
-import React from "react";
 import ReactDOM from "react-dom";
-import Button from "../atoms/Button";
+import { Button } from "../atoms/Button";
 import sc from "./GameOverModal.module.css";
 
-const GameOverPage = ({ onRestart }) => {
+export const GameOverModal = ({ onRestart }) => {
   return ReactDOM.createPortal(
     <>
       <div className={sc.backdrop}></div>
@@ -17,5 +16,3 @@ const GameOverPage = ({ onRestart }) => {
     document.getElementById("modal")
   );
 };
-
-export default GameOverPage;
