@@ -1,9 +1,9 @@
 import { GameActions } from "./GameActions";
 import { INITIAL_STATE } from "./InitialState";
 
-const INITIAL_TIME = 100; // Начальное время в первом раунде
-const TIME_PENALTY = 10; // Уменьшение времени за каждый раунд
-const MINIMUM_TIME = 10; // Минимальное время раунда
+const INITIAL_TIME = 100;
+const TIME_PENALTY = 10;
+const MINIMUM_TIME = 10;
 
 export const gameReducer = (state, action) => {
   switch (action.type) {
@@ -40,19 +40,15 @@ export const gameReducer = (state, action) => {
       };
 
     case GameActions.NEXT_ROUND: {
-      // Вычисляем время для следующего раунда
-      const nextTime = Math.max(
-        INITIAL_TIME - state.round * TIME_PENALTY,
-        MINIMUM_TIME
-      );
+      const nextTime = Math.max(INITIAL_TIME - state.round * TIME_PENALTY, MINIMUM_TIME);
 
       return {
         ...state,
-        round: state.round + 1, // Увеличиваем номер раунда
-        slabs: action.payload.slabs, // Задаем новые плитки
+        round: state.round + 1,
+        slabs: action.payload.slabs,
         flippedSlabs: [],
         matchedSlabs: [],
-        timeLeft: nextTime, // Обновляем время раунда
+        timeLeft: nextTime,
       };
     }
 
@@ -69,6 +65,6 @@ export const gameReducer = (state, action) => {
       };
 
     default:
-      throw new Error(`Unhandled action type: ${action.type}`);
+      throw new Error(`Неизвестный дип action: ${action.type}`);
   }
 };

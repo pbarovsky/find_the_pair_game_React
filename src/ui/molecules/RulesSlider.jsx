@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button } from "../atoms/Button";
-import sc from "./RulesSlider.module.css";
 
 const rules = [
   "В течение раунда Вам нужно находить 2 одинаковых плитки.",
@@ -29,19 +28,23 @@ export const RulesSlider = () => {
   };
 
   return (
-    <div className={sc.slider__card}>
-      <h3 className={sc.slider__title}>Правила игры</h3>
-      <div className={sc.slider}>
-        <Button
-          onClick={handlePrevious}
-          disabled={currentIndex === 0} // Блокировка кнопки, если на первом слайде
-        >
+    <div className="flex flex-col items-center mt-[50px] max-w-[600px] w-[90%] justify-center">
+      <h3
+        className="text-[20px] sl:text-[25px] font-bold text-center
+      "
+      >
+        Правила игры
+      </h3>
+      <div className="flex flex-row items-center max-w-[600px] w-full max-h-[200px] min-h-[100px] h-full mx-auto my-0 justify-around">
+        <Button onClick={handlePrevious} disabled={currentIndex === 0}>
           <i className="bi bi-arrow-left-short"></i>
         </Button>
-        <div className={sc.rule}>{rules[currentIndex]}</div>
+        <div className="flex items-center text-[14px] sl:text-[20px] text-accent max-w-[400px] min-w-[150px] w-full py-0 px-[20px] text-center min-h-[150px] h-full">
+          {rules[currentIndex]}
+        </div>
         <Button
           onClick={handleNext}
-          disabled={currentIndex === rules.length - 1} // Блокировка кнопки, если на последнем слайде
+          disabled={currentIndex === rules.length - 1}
         >
           <i className="bi bi-arrow-right-short"></i>
         </Button>

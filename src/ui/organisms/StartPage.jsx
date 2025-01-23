@@ -2,17 +2,17 @@ import { Button } from "../atoms/Button";
 import { Title } from "../atoms/Title";
 import { RulesSlider } from "../molecules/RulesSlider";
 
-import sc from "./StartPage.module.css";
-
 export const StartPage = ({ onStartGame }) => {
   return (
-    <section className={sc.start_page__card}>
-      <div className={sc.start_page__card_about}>
+    <section className="my-0 mx-auto max-w-[1000px] w-full h-[600px] flex flex-col items-center">
+      <div className="flex flex-col justify-center items-center">
         <Title />
-        <h2 className={sc.subtitle}>Игра найди пару</h2>
+        <h2 className="font-thin text-center md:text-[16px] text-[12px]">
+          Игра найди пару
+        </h2>
       </div>
       <RulesSlider />
-      <Button onClick={onStartGame} className={sc.start_page_button}>
+      <Button onClick={onStartGame} className="md:mt-[40px] mt-[10px]">
         Начать игру
       </Button>
     </section>

@@ -1,12 +1,66 @@
-html[data-theme='dark'] {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .slab {
+    @apply max-w-[200px] max-h-[200px] w-full h-full aspect-square cursor-pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s, background-color 0.5s ease;
+    transform: rotateY(0);
+  }
+  
+  .slab::before,
+  .slab::after {
+    @apply absolute top-0 left-0 w-full h-full flex justify-center items-center;
+    backface-visibility: hidden;
+    transition: background-image 0.5s ease;
+  }
+  
+  .slab::before {
+    content: "?";
+    @apply bg-main border-[3px] border-solid border-accent shadow-current text-accent;
+    transform: rotateY(0deg);
+    font-size: clamp(10px, 10vw, 50px);
+    color: var(--accent-color);
+  }
+  
+  .slab::after {
+    content: "";
+    @apply bg-no-repeat bg-center bg-cover border-[3px] border-solid border-accent shadow-current;
+    background-image: var(--slab-image);
+    transform: rotateY(180deg);
+    filter: var(--image);
+  }
+  
+  .slab.flipped {
+    transform: rotateY(180deg); 
+  }
+  
+  .slab.matched {
+    @apply pointer-events-none;
+  }
+  
+  .slab.matched::before {
+    content: "";
+    @apply bg-transparent border-0 shadow-none;
+  }
+  
+  .slab.matched::after {
+    @apply border-[1px] border-solid border-[transparent];
+    background-color: var(--main-color) !important;
+  }
+}
+
+html[data-theme="dark"] {
   --main-color: #111111;
   --accent-color: #fff;
   --disabled: #818181;
-  --backdrop: rgba(102, 102, 102, 0.13);
+  --backdrop: rgba(168, 168, 168, 0.13);
   --image: brightness(0) invert(1);
 }
 
-html[data-theme='light'] {
+html[data-theme="light"] {
   --main-color: #fff;
   --accent-color: #111111;
   --disabled: #ccc;
@@ -15,22 +69,15 @@ html[data-theme='light'] {
 }
 
 @font-face {
-  font-family: 'Megatech';
-  src: url('./assets/fonts/Megatech.ttf') format('truetype');
+  font-family: "Megatech";
+  src: url("./assets/fonts/Megatech.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body { 
-  @apply m-0 p-0 box-border font-sans select-none;
+body {
   font-family: "JetBrains Mono", serif;
   color: var(--accent-color);
   font-style: normal;
-  margin: 0;
-  padding: 0;
   background-color: var(--main-color);
 }

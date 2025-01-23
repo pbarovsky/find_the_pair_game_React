@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-import sc from "./Title.module.css";
 
 export const Title = () => {
   const text = "FIND A PAIR";
-  const letters = text
-    .split("")
-    .map((letter) => ({ letter, isAnimated: true }));
+  const letters = text.split("").map((letter) => ({
+    letter,
+    isAnimated: true,
+  }));
 
   const [animatedIndexes, setAnimatedIndexes] = useState([]);
 
-  // Функция случайного выбора индексов для анимации
   useEffect(() => {
     const animateRandomly = () => {
-      const count = Math.floor(Math.random() * 4) + 1; // От 1 до 4 букв
+      const count = Math.floor(Math.random() * 4) + 1; // 1–4 букв
       const indexes = [];
       while (indexes.length < count) {
         const randomIndex = Math.floor(Math.random() * letters.length);
@@ -20,22 +19,27 @@ export const Title = () => {
           indexes.push(randomIndex);
         }
       }
-      setAnimatedIndexes(indexes); // Убираем дубликаты
+      setAnimatedIndexes(indexes);
     };
 
     animateRandomly();
-    const interval = setInterval(animateRandomly, 1500); // Запуск каждые 3 секунды
-    return () => clearInterval(interval); // Очищаем таймер при размонтировании
+    const interval = setInterval(animateRandomly, 1500);
+    return () => clearInterval(interval);
   }, [letters.length]);
 
   return (
-    <div className={sc["text-container"]}>
+    <div
+      className="flex justify-center items-center max-h-[200px] h-full max-w-[1000px] w-full text-[20px] 
+      font-megatech text-accent sm:text-[30px] sl:text-[40px] lg:text-[55px] xl:text-[70px]"
+    >
       {letters.map((item, index) => (
         <div
           key={index}
-          className={`${sc.letter} ${
+          className={`inline-block whitespace-pre ${
             animatedIndexes.includes(index) && item.isAnimated
-              ? sc["animated-letter"]
+              ? index % 2 === 0
+                ? "animate-rotateX"
+                : "animate-rotateY"
               : ""
           }`}
         >

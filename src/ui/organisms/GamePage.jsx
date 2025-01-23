@@ -7,7 +7,6 @@ import { shuffleImages } from "../../utils/shuffleImages";
 import { formatTime } from "../../utils/formatTime";
 import { GameStatusBar } from "../molecules/GameStatusBar";
 import { images } from "../../utils/images";
-import sc from "./GamePage.module.css";
 
 export const GamePage = ({ onGameOver, exit }) => {
   const [state, dispatch] = useReducer(gameReducer, {
@@ -72,13 +71,13 @@ export const GamePage = ({ onGameOver, exit }) => {
   };
 
   return (
-    <div className={sc.game__container}>
+    <div className="flex flex-col justify-start items-center px-[30px] py-0">
       <GameStatusBar
         round={round}
         timeLeft={formatTime(timeLeft)}
         exit={exit}
       />
-      <div className={sc["game-board"]}>
+      <div className="max-w-[580px] max-h-[580px] w-full h-full grid grid-cols-4 grid-rows-4 gap-[15px] my-0 mx-[30px]">
         {slabs.map((image, index) => (
           <Slab
             key={index}
