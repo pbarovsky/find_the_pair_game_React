@@ -7,6 +7,7 @@ const rules = [
   "Если не совпали — они закрываются.",
   "На каждый раунд дается 100 секунд.",
   "Каждый раунд время уменьшается на 10 секунд.",
+  "Завершите раунд менее чем за 50% времени - получите +15 секунд.",
   "Раунд закончится, когда все плитки будут открыты.",
   "Игра продолжается до тех пор, пока таймер не завершится.",
   "Будьте внимательны и запоминайте позиции плиток!",
@@ -29,10 +30,7 @@ export const RulesSlider = () => {
 
   return (
     <div className="flex flex-col items-center mt-[50px] max-w-[600px] w-[90%] justify-center">
-      <h3
-        className="text-[20px] sl:text-[25px] font-bold text-center
-      "
-      >
+      <h3 className="text-[20px] sl:text-[25px] font-bold text-center">
         Правила игры
       </h3>
       <div className="flex flex-row items-center max-w-[600px] w-full max-h-[200px] min-h-[100px] h-full mx-auto my-0 justify-around">

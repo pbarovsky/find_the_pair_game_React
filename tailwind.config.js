@@ -43,10 +43,20 @@ export default {
           "50%": { transform: "rotateY(360deg)" },
           "100%": { transform: "rotateY(0deg)" },
         },
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1', transform: 'translateY(0)' },
+          '100%': { opacity: '0', transform: 'translateY(-10px)' },
+        },
       },
       animation: {
         rotateX: "rotateX 3s ease-in-out infinite",
         rotateY: "rotateY 3s ease-in-out infinite",
+        fadeIn: 'fadeIn 0.5s ease-out',
+        fadeOut: 'fadeOut 0.5s ease-in',
       },
     },
   },

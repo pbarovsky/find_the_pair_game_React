@@ -1,14 +1,16 @@
-import React, { useReducer, useEffect } from "react";
-import { Slab } from "../atoms/Slab";
+import React, { useReducer, useEffect, useState } from "react";
+import { Board } from "../molecules/Board";
 import { gameReducer } from "../../reducers/GameReducer";
 import { GameActions } from "../../reducers/GameActions";
 import { INITIAL_STATE } from "../../reducers/InitialState";
 import { shuffleImages } from "../../utils/shuffleImages";
 import { formatTime } from "../../utils/formatTime";
 import { GameStatusBar } from "../molecules/GameStatusBar";
+import { Notification } from "../atoms/Notification";
 import { images } from "../../utils/images";
 
 export const GamePage = ({ onGameOver, exit }) => {
+  const [notification, setNotification] = useState(null);
   const [state, dispatch] = useReducer(gameReducer, {
     ...INITIAL_STATE,
     slabs: shuffleImages(images),
@@ -16,7 +18,6 @@ export const GamePage = ({ onGameOver, exit }) => {
 
   const { slabs, flippedSlabs, matchedSlabs, timeLeft, round } = state;
 
-  // Таймер
   useEffect(() => {
     if (timeLeft <= 0) {
       dispatch({ type: GameActions.GAME_OVER });
@@ -32,22 +33,28 @@ export const GamePage = ({ onGameOver, exit }) => {
     return () => clearTimeout(timer);
   }, [timeLeft, onGameOver]);
 
-  // Переход на следующий раунд
   useEffect(() => {
     if (matchedSlabs.length === slabs.length) {
+      const timeSpent = INITIAL_STATE.timeLeft - state.timeLeft;
+      const threshold = INITIAL_STATE.timeLeft / 2;
+
+      if (timeSpent < threshold) {
+        setNotification("Бонус +15 секунд!");
+        setTimeout(() => setNotification(null), 2500);
+      }
+
       dispatch({
         type: GameActions.NEXT_ROUND,
         payload: { slabs: shuffleImages(images) },
       });
     }
-  }, [matchedSlabs, slabs]);
+  }, [matchedSlabs, slabs, state.timeLeft]);
 
-  // Обработка кликов по плиткам
   const handleSlabClick = (index) => {
     if (
-      flippedSlabs.length === 2 || // Уже выбраны две плитки
-      flippedSlabs.includes(index) || // Плитка уже перевернута
-      matchedSlabs.includes(index) // Плитка угадана
+      flippedSlabs.length === 2 ||
+      flippedSlabs.includes(index) ||
+      matchedSlabs.includes(index)
     ) {
       return;
     }
@@ -77,17 +84,18 @@ export const GamePage = ({ onGameOver, exit }) => {
         timeLeft={formatTime(timeLeft)}
         exit={exit}
       />
-      <div className="max-w-[580px] max-h-[580px] w-full h-full grid grid-cols-4 grid-rows-4 gap-[15px] my-0 mx-[30px]">
-        {slabs.map((image, index) => (
-          <Slab
-            key={index}
-            image={image}
-            isFlipped={flippedSlabs.includes(index)}
-            isMatched={matchedSlabs.includes(index)}
-            onClick={() => handleSlabClick(index)}
-          />
-        ))}
-      </div>
+      <Board
+        slabs={slabs}
+        flippedSlabs={flippedSlabs}
+        matchedSlabs={matchedSlabs}
+        handleSlabClick={handleSlabClick}
+      />
+      {notification && (
+        <Notification
+          message={notification}
+          onClose={() => setNotification(null)}
+        />
+      )}
     </div>
   );
 };
