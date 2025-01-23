@@ -39,7 +39,7 @@ Follow these steps to clone and run the project locally:
    npm run dev
    ```
 
-4. Run the development server `http://localhost:5173`
+4. Run the development server `http://localhost:5173/CDG_task_2_slabs_game/`
 
 ## 🛠️ Technologies Used
 
