@@ -5,4 +5,5 @@ export const GameActions = {
   NEXT_ROUND: "NEXT_ROUND",
   DECREMENT_TIME: "DECREMENT_TIME",
   GAME_OVER: "GAME_OVER",
-}
+  RESET_FLIPPED: "RESET_FLIPPED",
+};

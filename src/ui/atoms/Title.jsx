@@ -29,8 +29,9 @@ export const Title = () => {
 
   return (
     <div
-      className="flex justify-center items-center max-h-[200px] h-full max-w-[1000px] w-full text-[20px] 
-      font-megatech text-accent sm:text-[30px] sl:text-[40px] lg:text-[55px] xl:text-[70px]"
+      className="flex justify-center items-center max-w-[1000px] w-full text-[40px] tracking-wider
+      font-qubix text-accent sm:text-[55px] sl:text-[75px] md:text-[90px] lg:text-[120px] xl:text-[140px] h-full
+      xl:h-[100px] lg:h-[80px] md:h-[60px] sl:h-[60px] sm:h-[40px] h-[30px]"
     >
       {letters.map((item, index) => (
         <div

@@ -3,7 +3,7 @@ import { INITIAL_STATE } from "./InitialState";
 
 const INITIAL_TIME = 100;
 const TIME_PENALTY = 10;
-const BONUS_TIME = 15;
+const BONUS_TIME = 20;
 
 const isSlabClickable = (index, state) =>
   state.flippedSlabs.length < 2 &&

@@ -21,8 +21,8 @@ export default {
         transparent: "transparent",
       },
       fontFamily: {
-        megatech: ["Megatech", "sans-serif"],
         jetbrains: ["JetBrains Mono", "serif"],
+        qubix: ["Qubix", "serif"],
       },
       boxShadow: {
         current:

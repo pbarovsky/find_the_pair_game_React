@@ -69,8 +69,8 @@ html[data-theme="light"] {
 }
 
 @font-face {
-  font-family: "Megatech";
-  src: url("./assets/fonts/Megatech.ttf") format("truetype");
+  font-family: "Qubix";
+  src: url("./assets/fonts/Qubix.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
