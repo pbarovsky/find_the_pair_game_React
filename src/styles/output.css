@@ -966,6 +966,10 @@ video {
   gap: 15px;
 }
 
+.gap-\[5px\] {
+  gap: 5px;
+}
+
 .whitespace-pre {
   white-space: pre;
 }

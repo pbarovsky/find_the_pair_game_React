@@ -5,10 +5,10 @@ import { RulesSlider } from "../molecules/RulesSlider";
 export const StartPage = ({ onStartGame }) => {
   return (
     <section className="my-0 mx-auto max-w-[1000px] w-full h-[600px] flex flex-col items-center">
-      <div className="flex flex-col justify-center items-center gap-[10px]">
+      <div className="flex flex-col justify-center items-center gap-[5px]">
         <Title />
         <h2 className="font-thin text-center md:text-[16px] text-[12px]">
-          Игра найди пару
+          Найди пару
         </h2>
       </div>
       <RulesSlider />
