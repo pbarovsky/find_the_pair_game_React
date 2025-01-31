@@ -44,19 +44,41 @@ export default {
           "100%": { transform: "rotateY(0deg)" },
         },
         fadeIn: {
-          '0%': { opacity: '0', transform: 'translateY(-10px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+          "0%": { opacity: "0", transform: "translateY(-10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         fadeOut: {
-          '0%': { opacity: '1', transform: 'translateY(0)' },
-          '100%': { opacity: '0', transform: 'translateY(-10px)' },
+          "0%": { opacity: "1", transform: "translateY(0)" },
+          "100%": { opacity: "0", transform: "translateY(-10px)" },
+        },
+        slideUp: {
+          "0%": {
+            transform: "translate(-50%, 100vh)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translate(-50%, -50%)",
+            opacity: "1",
+          },
+        },
+        slideDown: {
+          "0%": {
+            transform: "translate(-50%, -50%)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translate(-50%, -150vh)",
+            opacity: "0",
+          },
         },
       },
       animation: {
         rotateX: "rotateX 3s ease-in-out infinite",
         rotateY: "rotateY 3s ease-in-out infinite",
-        fadeIn: 'fadeIn 0.5s ease-out',
-        fadeOut: 'fadeOut 0.5s ease-in',
+        fadeIn: "fadeIn 0.5s ease-out",
+        fadeOut: "fadeOut 0.5s ease-in",
+        "slide-up": "slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+        "slide-down": "slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
       },
     },
   },

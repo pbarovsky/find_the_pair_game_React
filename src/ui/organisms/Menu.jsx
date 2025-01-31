@@ -2,7 +2,7 @@ import { Button } from "../atoms/Button";
 import { Title } from "../atoms/Title";
 import { RulesSlider } from "../molecules/RulesSlider";
 
-export const StartPage = ({ onStartGame }) => {
+export const Menu = ({ onStartGame }) => {
   return (
     <section className="my-0 mx-auto max-w-[1000px] w-full h-[600px] flex flex-col items-center">
       <div className="flex flex-col justify-center items-center gap-[5px]">

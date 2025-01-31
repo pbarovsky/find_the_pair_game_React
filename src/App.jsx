@@ -1,31 +1,16 @@
-import { useState } from "react";
-import { GamePage } from "./ui/organisms/GamePage";
-import { GameOverModal } from "./ui/organisms/GameOverModal";
-import { StartPage } from "./ui/organisms/StartPage";
+import { Game } from "./ui/organisms/Game";
+import { Menu } from "./ui/organisms/Menu";
 import { EffectTogglers } from "./ui/molecules/EffectTogglers";
+import { useState } from "react";
 
 const App = () => {
   const [isGameStarted, setIsGameStarted] = useState(false);
-  const [isGameOver, setIsGameOver] = useState(false);
-
-  const startGame = () => {
-    setIsGameStarted(true);
-    setIsGameOver(false);
-  };
-
-  const endGame = () => setIsGameOver(true);
-
-  const restartGame = () => {
-    setIsGameStarted(false);
-    setIsGameOver(false);
-  };
 
   return (
     <>
       <EffectTogglers />
-      {!isGameStarted && <StartPage onStartGame={startGame} />}
-      {isGameStarted && <GamePage onGameOver={endGame} exit={restartGame} />}
-      {isGameOver && <GameOverModal onRestart={restartGame} />}
+      {!isGameStarted && <Menu onStartGame={() => setIsGameStarted(true)} />}
+      {isGameStarted && <Game exit={() => setIsGameStarted(false)} />}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Howl } from "howler";
 import { useTheme } from "../../hooks/useTheme";
 import MUSIC from "../../assets/sounds/sound.mp3";

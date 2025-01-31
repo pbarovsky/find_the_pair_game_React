@@ -16,11 +16,11 @@ const calculateNextTime = (round, timeSpent, threshold) => {
 };
 
 export const gameReducer = (state, action) => {
-  const { flippedSlabs, matchedSlabs, round, timeLeft } = state;
+  const { flippedSlabs, matchedSlabs, round, timeLeft, missedPairs, isGameOver } = state;
 
   switch (action.type) {
     case GameActions.RESET:
-      return { ...INITIAL_STATE, slabs: action.payload.slabs };
+      return { ...INITIAL_STATE, slabs: action.payload.slabs, isGameOver: false };
 
     case GameActions.FLIP_SLAB:
       return isSlabClickable(action.payload, state)
@@ -35,7 +35,7 @@ export const gameReducer = (state, action) => {
       };
 
     case GameActions.RESET_FLIPPED:
-      return { ...state, flippedSlabs: [] };
+      return { ...state, flippedSlabs: [], missedPairs: missedPairs + 1 };
 
     case GameActions.NEXT_ROUND: {
       const timeSpent = INITIAL_TIME - timeLeft;
@@ -56,7 +56,7 @@ export const gameReducer = (state, action) => {
       return { ...state, timeLeft: timeLeft - 1 };
 
     case GameActions.GAME_OVER:
-      return { ...state, timeLeft: 0 };
+      return { ...state, timeLeft: 0, isGameOver: true };
 
     default:
       throw new Error(`Unknown action type: ${action.type}`);
