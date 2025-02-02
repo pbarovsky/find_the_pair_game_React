@@ -11,7 +11,7 @@ const isSlabClickable = (index, state) =>
   !state.matchedSlabs.includes(index);
 
 const calculateNextTime = (round, timeSpent, threshold) => {
-  let nextTime = INITIAL_TIME - (round + 1) * TIME_PENALTY;
+  let nextTime = INITIAL_TIME - round * TIME_PENALTY;
   return timeSpent < threshold ? nextTime + BONUS_TIME : nextTime;
 };
 
