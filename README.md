@@ -1,14 +1,14 @@
-# 📱 Find the Pair Game 
+# Find the Pair Game 
 
-## 🌐 Live Demo
+## Live Demo
 
-Check out the live demo of the game: [Find the Pair Game - Live Demo](https://pbarovsky.github.io/CDG_task_2_slabs_game/)
+Check out the live demo of the game: [Live Demo](https://pbarovsky.github.io/find_the_pair_game_React/)
 
-## 🎴 Overview
+## Overview
 
 **Find the Pair Game** is a simple, fun and addictive game where the goal is to match pairs of tiles. Enjoy smooth animations, responsive design and switchable light/dark theme and music for an amazing gaming experience.
 
-## 📖 Features
+## Features
 
 - **Light and Dark Themes**: Seamlessly switch between themes to match your preference.
 - **Background Music**: Enjoy background music during gameplay (optional toggle).
@@ -16,15 +16,15 @@ Check out the live demo of the game: [Find the Pair Game - Live Demo](https://pb
 - **Responsive Design**: The game works perfectly on both desktop and mobile devices.
 - **Minimalistic UI**: A clean and straightforward interface for distraction-free gameplay.
 
-## 🧑🏻‍💻 How to Run the Project Locally
+## How to Run the Project Locally
 
 Follow these steps to clone and run the project locally:
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/pbarovsky/CDG_task_2_slabs_game.git
-   cd CDG_task_2_slabs_game
+   git clone https://github.com/pbarovsky/find_the_pair_game_React.git
+   cd find_the_pair_game_React
    ```
 
 2. Install dependencies:
@@ -39,9 +39,9 @@ Follow these steps to clone and run the project locally:
    npm run dev
    ```
 
-4. Run the development server `http://localhost:5173/CDG_task_2_slabs_game/`
+4. Run the development server `http://localhost:5173/find_the_pair_game_React/`
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **React**: For building the user interface.
 - **Vite**: As a fast and modern build tool.
